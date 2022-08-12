@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Revisión & Práctica I</title>
+</head>
+
+<body>
+
+    <div id="app">
+
+    </div>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        const person = {
+            avatar: 'https://cdn-3.expansion.mx/dims4/default/d48188a/2147483647/strip/true/crop/1280x853+0+0/resize/1200x800!/format/webp/quality/90/?url=https%3A%2F%2Fcdn-3.expansion.mx%2F27%2F9a%2F3492944b4d1db27356c46ba847b9%2Fgettyimages-1172789986.jpg',
+            name: 'Johnny Depp',
+            age: 55,
+            nationality: 'EEUU',
+            experiences: [
+                'Pirates of the Caribbean',
+                'Amber vs Johnny',
+                'Pirates of the Caribbean 1, 2, 3, 4',
+                'Willy Wonka'
+            ],
+            education: ['University of Arts', 'University of UCLA'],
+            bio: 'xxxxxxxxxx xxxxxxxxxx'
+        }
+
+        const Header = () => {
+            return (
+                <header className="header">
+                    <nav>
+                        <ul>
+                            <li>Home</li>
+                            <li>About</li>
+                            <li>Career</li>
+                            <li>Education</li>
+                        </ul>
+                    </nav>
+                </header>
+            )
+        };
+
+        const Main = ({ data }) => {
+            return (
+                <main className="main">
+                    <section>
+                        <img src={data.avatar} alt={data.name} />
+                    </section>
+
+                    <section>
+                        <h2>Personal Information</h2>
+                        <p>Name: <span>{data.name}</span></p>
+                        <p>Age: <span>{data.age}</span></p>
+                        <p>Nationality: <span>{data.nationality}</span></p>
+
+                        <h4>Experience in movies:</h4>
+                        <ul>
+                            {data.experiences.map(e => <li>{e}</li>)}
+                        </ul>
+
+                        <h4>Education:</h4>
+                        <ul>
+                            {data.education.map(e => <li>{e}</li>)}
+                        </ul>
+
+                        <h4>Bio:</h4>
+                        <p>{data.bio}</p>
+                    </section>
+                </main>
+            )
+        };
+
+
+        const App = (
+            <div>
+                <Header />
+                <Main data={person} />
+            </div>
+        );
+
+        const app = document.getElementById('app');
+        const root = ReactDOM.createRoot(app);
+        root.render(App);
+
+
+
+    </script>
+</body>
+
+</html>
