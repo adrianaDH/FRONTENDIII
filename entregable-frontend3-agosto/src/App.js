@@ -13,8 +13,7 @@ function App() {
 
   const [cantidadArticulos, setcantidadArticulos] = useState(0);
   
-  const actualizarCantidad = () => setcantidadArticulos(cantidadArticulos + 1)
-  console.log('Incrementa cantidad articulos en App');
+  const actualizarCantidad = () => setcantidadArticulos(cantidadArticulos + 1);
 
   
   return (
